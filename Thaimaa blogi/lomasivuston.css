@@ -1,19 +1,81 @@
 body {
   font-family: 'Segoe UI', sans-serif;
+  background-image: url('seashells.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; 
+  margin: 0;
+  padding: 0;
 }
 
-/* Karusellin kuvat täyttämään koko korkeus */
+/* Karuselli */
 .carousel-item img {
-  height: 300px;
+  height: 500px;
   object-fit: cover;
 }
 
+/* Kortit */
 .card {
   border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+}
+
+.card-img-top {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Footer */
 footer {
   margin-top: 40px;
+  background-color: #0d6efd;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* Modalit */
+.modal-content {
+  border-radius: 15px;
+}
+
+/* Tekstin responsiivisuus */
+h2 {
+  font-size: 1.8rem;
+}
+@media (min-width: 768px) {
+  h2 { font-size: 2.2rem; }
+}
+@media (min-width: 1200px) {
+  h2 { font-size: 2.5rem; }
+}
+
+/* Navigaatio */
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+.nav-link {
+  font-size: 1rem;
+}
+
+/* Accordion */
+.accordion-button {
+  font-weight: 500;
+}
+
+/* Scrollspy aktiivinen linkki */
+.nav-link.active {
+  font-weight: bold;
+  text-decoration: underline;
+  color: #fff !important;
 }
 
