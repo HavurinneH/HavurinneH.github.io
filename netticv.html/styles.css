@@ -1,0 +1,72 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background: 
+        linear-gradient(to right, rgba(121, 200, 212, 0.8), rgba(103, 129, 126, 0.8)), 
+        url('lehdet3.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 40px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    color: #333;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: left; 
+}
+
+.text {
+    flex: 2;
+    margin-right: 20px; 
+}
+
+.images {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.work-img {
+    max-width: 100%;
+    margin-bottom: 20px;
+    border-radius: 10px; 
+}
+
+.nav-buttons {
+    margin-top: 20px;
+}
+
+.nav-buttons a {
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #ce5cae;
+    color: white;
+    border-radius: 5px;
+}
+
+.nav-buttons a:hover {
+    background-color: #2c3845;
+}
+
+

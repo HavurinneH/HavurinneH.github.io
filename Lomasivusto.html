@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thaimaan auringon alla - Blogi</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Oma CSS -->
+  <link href="lomasivuston.css" rel="stylesheet">
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50" tabindex="0">
+
+  <!-- Navigaatio -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="palmu-aurinko.jpg" alt="Palmu ja aurinko" 
+           style="height: 30px; margin-right: 8px;">
+        Thaimaan auringon alla</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#karuselli">Kuvagalleria</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kohteet">Kohteet</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">Kiva tietää</a></li>
+          <li class="nav-item"><a class="nav-link" href="#taulukko">Hintoja</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Kuvakaruselli -->
+  <div id="karuselli" class="carousel slide mt-5" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="palmut.jpg" class="d-block w-100" alt="Palmut">
+      </div>
+      <div class="carousel-item">
+        <img src="temppeli2.jpg" class="d-block w-100" alt="Temppeli 2">
+      </div>
+      <div class="carousel-item">
+        <img src="riippumatto.jpg" class="d-block w-100" alt="Riippumatto">
+      </div>
+      <div class="carousel-item">
+        <img src="ruoka.jpg" class="d-block w-100" alt="Ruoka">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#karuselli" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#karuselli" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+  <!-- Ruudukko + kortit + modalit -->
+  <div class="container my-5" id="kohteet">
+    <h2 class="text-center mb-4">Missä on käyty ja mitä vielä käymättä</h2>
+    <div class="row g-4">
+
+      <!-- Phuket -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="phuket.jpg" class="card-img-top" alt="Phuket">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Phuket</h5>
+            <p class="card-text">Valkoisia hiekkarantoja ja yöelämää.</p>
+            <button type="button" class="btn btn-primary mt-auto" data-bs-toggle="modal" data-bs-target="#phuketModal">Lue lisää</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Krabi -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="krabi.jpg" class="card-img-top" alt="Krabi">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Krabi</h5>
+            <p class="card-text">Kalkkikivikallioita, rauhallisia rantoja ja laguuneita.</p>
+            <button type="button" class="btn btn-primary mt-auto" data-bs-toggle="modal" data-bs-target="#krabiModal">Lue lisää</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Koh Chang -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="chang.jpg" class="card-img-top" alt="Koh Chang">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Koh Chang</h5>
+            <p class="card-text">Auringonlaskuja ja rauhaa trooppisen luonnon sylissä.</p>
+            <button type="button" class="btn btn-primary mt-auto" data-bs-toggle="modal" data-bs-target="#changModal">Lue lisää</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Koh Samui -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="samui.jpg" class="card-img-top" alt="Koh Samui">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Koh Samui</h5>
+            <p class="card-text">Palmurantoja ja luksusresortteja.</p>
+            <button type="button" class="btn btn-primary mt-auto" data-bs-toggle="modal" data-bs-target="#samuiModal">Lue lisää</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Modalit (kaikki kohteet) -->
+  <div class="modal fade" id="phuketModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog"><div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title">Phuket</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">Phuket on Thaimaan suurin saari ja tunnettu valkoisista hiekkarannoistaan, aktiviteeteistaan ja vilkkaasta yöelämästään. Phuketissa emme ole vielä käyneet, mutta taatusti tulee olemaan vierailulistalla jonakin vuonna!</div>
+      <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sulje</button></div>
+    </div></div>
+  </div>
+
+  <div class="modal fade" id="krabiModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog"><div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title">Krabi</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">Krabi tunnetaan jyrkistä kalkkikivikallioistaan, rauhallisista rannoistaan ja turkooseista laguuneistaan. Krabilla ehdottomasti vierailun arvoinen on myös Tiger Cave -temppeli; ylös päästäkseen pitää nousta 1272 jyrkkää porrasta!</div>
+      <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sulje</button></div>
+    </div></div>
+  </div>
+
+  <div class="modal fade" id="changModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog"><div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title">Koh Chang</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">Koh Chang tarjoaa rauhaa, upeita auringonlaskuja ja trooppisen luonnon sylissä rentoutumista. Täällä ihmisen sielu lepää, eikä kotiin enää tahtoisi lähteä. Turkoosi vesi ja rantaravintolat, viidakkoa ja henkeä salpaavia auringonlaskuja! </div>
+      <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sulje</button></div>
+    </div></div>
+  </div>
+
+  <div class="modal fade" id="samuiModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog"><div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title">Koh Samui</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">Koh Samui on tunnettu palmurannoistaan, luksusresorteistaan ja monipuolisista aktiviteeteistaan. Samui on myös vielä vierailematta, listalla seuraavan 3 vuoden sisällä ehdottomasti. </div>
+      <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sulje</button></div>
+    </div></div>
+  </div>
+
+  <!-- Haitari (FAQ) -->
+  <div class="container my-5" id="faq">
+    <h2 class="text-center mb-4">Kiva tietää</h2>
+    <div class="accordion" id="accordionFAQ">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q1">
+            Milloin Thaimaahan kannattaa matkustaa?
+          </button>
+        </h2>
+        <div id="q1" class="accordion-collapse collapse show" data-bs-parent="#accordionFAQ">
+          <div class="accordion-body">
+            Paras aika matkustaa Thaimaahan on milloin vain!
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">
+            Tarvitaanko viisumi?
+          </button>
+        </h2>
+        <div id="q2" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+          <div class="accordion-body">
+            Suomalaiset voivat matkustaa Thaimaahan 60 päivän turistimatkalle ilman viisumia.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item"> 
+        <h2 class="accordion-header"> 
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2"> 
+            Sataako sadekaudella aina? 
+          </button> 
+        </h2> 
+        <div id="q2" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ"> 
+          <div class="accordion-body"> 
+            Sadekaudella sataa yleensä iltapäivisin tai öisin, joten päivät voivat olla aurinkoisia. 
+          </div> 
+        </div> 
+      </div> 
+      <div class="accordion-item"> 
+        <h2 class="accordion-header"> 
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2"> 
+            Onko Thaimaan ruoka tulista? 
+          </button> 
+        </h2> 
+        <div id="q2" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ"> 
+          <div class="accordion-body"> 
+            Ruokaa saa tilattua myös miedompana, joten jokaiselle löytyy sopivaa syötävää. 
+          </div> 
+        </div> 
+      </div>
+      <div class="accordion-item"> 
+        <h2 class="accordion-header"> 
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2"> 
+            Ovatko Thaimaan rannat turvallisia? 
+          </button> 
+        </h2> 
+        <div id="q2" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ"> 
+          <div class="accordion-body"> 
+            Rannat ovat yleisesti ottaen turvallisia, mutta on hyvä noudattaa paikallisia ohjeita ja varoa voimakkaita virtauksia. 
+          </div> 
+        </div> 
+      </div>
+    </div>
+  </div>
+
+  <!-- Taulukko -->
+  <div class="container my-5" id="taulukko">
+    <h2 class="text-center mb-4">Esimerkkihintoja</h2>
+    <table class="table table-striped text-center">
+      <thead class="table-primary">
+        <tr>
+          <th>Kohde</th>
+          <th>Hotelli (€/yö)</th>
+          <th>Ateria (€/hlö)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Phuket</td>
+          <td>40</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>Krabi</td>
+          <td>33</td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <td>Koh Samui</td>
+          <td>33</td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <td>Rayong</td>
+          <td>15</td>
+          <td>2,70</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-primary text-white text-center py-3">
+    <p>&copy; 2025 Thaimaan auringon alla - Blogi</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

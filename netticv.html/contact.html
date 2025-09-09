@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yhteystiedot</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Ota yhteyttä! Lähetä viesti yhteydenottolomakkeella tai sähköpostilla.</h1>
+        <p>Sähköposti: henna.havurinne@gmail.com</p>
+        <p>Puhelin: 044-0856327</p>
+        <p>Osoite: Kankaanrannantie 7, 82510 Kiteenlahti</p>
+
+        <h2>Ota yhteyttä</h2>
+        <form action="send_email.php" method="POST">
+            <label for="name">Nimesi:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">Sähköpostisi:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="message">Viestisi:</label><br>
+            <textarea id="message" name="message" rows="5" required></textarea><br><br>
+
+            <button type="submit">Lähetä</button>
+        </form>
+
+        <div class="nav-buttons">
+            <a href="index.html">Takaisin Esittelyyn</a>
+            <a href="about.html">Tietoja minusta</a>
+            <a href="experience.html">Työkokemus</a>
+        </div>
+    </div>
+</body>
+</html>
+

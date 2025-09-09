@@ -1,0 +1,19 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Karusellin kuvat täyttämään koko korkeus */
+.carousel-item img {
+  height: 300px;
+  object-fit: cover;
+}
+
+.card {
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+footer {
+  margin-top: 40px;
+}
+
