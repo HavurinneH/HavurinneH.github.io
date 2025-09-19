@@ -18,8 +18,8 @@ try {
 }
 
 // --- Hae ulkoinen JSON tiedosto ---
-function fetchJSON(url) {
-  fetch(url)
+function fetchJSON(https://github.com/HavurinneH/HavurinneH.github.io/blob/main/JSON%20ty%C3%B6t/JSON.json) {
+  fetch(https://github.com/HavurinneH/HavurinneH.github.io/blob/main/JSON%20ty%C3%B6t/JSON.json)
     .then(response => {
       if (!response.ok) throw new Error("Verkkovirhe: " + response.status);
       return response.json(); // JSON → JS-objekti
