@@ -26,7 +26,7 @@
       <p>Tällä sivustolla opiskellaan JSON-muotoista dataa</p>
     </section>
 
-    <!-- Hero kuva -->
+    <!-- Hero-kuva -->
     <section class="hero">
       <img src="koodi.webp" alt="tila">
     </section>
@@ -54,16 +54,19 @@
     <section id="json-editor">
       <h2>JSON-editori</h2>
       <textarea id="json-input" placeholder="Syötä JSON tähän..."></textarea>
+
+      <!-- Toiminnot -->
       <div class="button-group">
         <button onclick="validateJSON()">Validoi</button>
         <button onclick="saveJSON()">Tallenna</button>
         <button onclick="loadJSON()">Lataa</button>
         <button onclick="downloadJSON()">Lataa tiedostona</button>
+        <button onclick="fetchJSON('data.json')">Hae ulkoinen JSON</button>
       </div>
 
       <!-- Haku-kenttä ja nappi -->
       <div class="search-group" style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-        <input type="text" id="search-key" placeholder="Kentän nimi" style="flex: 1; padding: 0.5rem; border-radius: 6px; border: 1px solid #444; background: #111; color: #0ff; font-family: monospace;">
+        <input type="text" id="search-key" placeholder="Kentän nimi">
         <button onclick="searchJSONKey()">Hae kenttä</button>
       </div>
 

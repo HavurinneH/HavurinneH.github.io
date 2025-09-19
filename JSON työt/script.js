@@ -90,3 +90,22 @@ function searchJSONKey() {
     output.style.color = "#ffa500";
   }
 }
+
+// Hae ulkoinen JSON tiedosto fetchillä ja muunna JS-objektiksi
+function fetchJSON(url) {
+  const output = document.getElementById("output");
+
+  fetch(url)
+    .then(response => {
+      if (!response.ok) throw new Error("Verkkovirhe: " + response.status);
+      return response.json(); // JSON -> JS-objekti
+    })
+    .then(data => {
+      output.textContent = "✅ JSON ladattu onnistuneesti!\n\n" + JSON.stringify(data, null, 2);
+      output.style.color = "#0f0";
+    })
+    .catch(error => {
+      output.textContent = "❌ Virhe JSONin hakemisessa:\n" + error.message;
+      output.style.color = "#f00";
+    });
+}
