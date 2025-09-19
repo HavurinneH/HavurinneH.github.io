@@ -50,32 +50,20 @@
       </div>
     </section>
 
-    <!-- JSON-editori -->
-    <section id="json-editor">
-      <h2>JSON-editori</h2>
-      <textarea id="json-input" placeholder="Syötä JSON tähän..."></textarea>
+    <!-- JSON:n tulostus -->
+    <section class="json-output">
+      <h2>JSON-tuloste</h2>
+      <pre id="output">JSON-tuloste näkyy täällä</pre>
+    </section>
 
-      <!-- Toiminnot -->
-      <div class="button-group">
-        <button onclick="validateJSON()">Validoi</button>
-        <button onclick="saveJSON()">Tallenna</button>
-        <button onclick="loadJSON()">Lataa</button>
-        <button onclick="downloadJSON()">Lataa tiedostona</button>
-        <button onclick="fetchJSON('data.json')">Hae ulkoinen JSON</button>
-      </div>
-
-      <!-- Haku-kenttä ja nappi -->
-      <div class="search-group" style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-        <input type="text" id="search-key" placeholder="Kentän nimi">
-        <button onclick="searchJSONKey()">Hae kenttä</button>
-      </div>
-
-      <pre id="output"></pre>
+    <!-- Napit fetchille -->
+    <section class="button-group">
+      <button onclick="fetchJSON('data.json')">Hae ulkoinen JSON</button>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Sähäkkä JSON-tehtävät</p>
+    <p>&copy; 2025 Hennan JSON-tehtävät</p>
   </footer>
 
   <script src="script.js"></script>
