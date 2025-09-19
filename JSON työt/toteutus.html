@@ -1,35 +1,93 @@
-{
-  "toteutus": {
-    "nimi": "Digitekniikat",
-    "alku": "2025-01-13",
-    "loppu": "2025-03-14",
-    "kesto_viikkoina": 8,
-    "osallistujat": [
-      {
-        "nimi": "Henna",
-        "kuvaus": "Keskittyy SQL-tietokantojen suunnitteluun ja liiketalouden laskelmiin.",
-        "kuva": "henna.jpg"
-      },
-      {
-        "nimi": "Mikko",
-        "kuvaus": "Rakentaa verkkosivuja ja tutkii käyttöliittymien toimivuutta.",
-        "kuva": "mikko.jpg"
-      },
-      {
-        "nimi": "Sara",
-        "kuvaus": "Kehittää JavaScript-sovelluksia ja testaa interaktiivisuutta.",
-        "kuva": "sara.jpg"
-      },
-      {
-        "nimi": "Joni",
-        "kuvaus": "Tutkii UX/UI-suunnittelua ja tekee prototyyppejä Figmalla.",
-        "kuva": "joni.jpg"
-      },
-      {
-        "nimi": "Emilia",
-        "kuvaus": "Analysoi datan visualisointia ja käyttää Power BI:tä.",
-        "kuva": "emilia.jpg"
-      }
-    ]
-  }
-}
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <title>Digitekniikat – Osallistujat</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #eef2f3, #8e9eab);
+      margin: 0;
+      padding: 20px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    header h1 {
+      font-size: 2.5em;
+      color: #333;
+    }
+    header p {
+      font-size: 1.2em;
+      color: #555;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 0 20px;
+    }
+    .card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+    .card:hover {
+      transform: scale(1.03);
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 15px;
+    }
+    .card-content h3 {
+      margin: 0;
+      color: #0077cc;
+    }
+    .card-content p {
+      margin-top: 8px;
+      color: #444;
+      font-size: 0.95em;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Digitekniikat</h1>
+    <p><strong>Toteutusaika:</strong> 13.1.–14.3.2025 &nbsp;|&nbsp; <strong>Kesto:</strong> 8 viikkoa</p>
+  </header>
+
+  <div class="cards" id="osallistujat"></div>
+
+  <script>
+    fetch('Digitekniikat.json')
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('osallistujat');
+        data.toteutus.osallistujat.forEach(hlo => {
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.innerHTML = `
+            <img src="${hlo.kuva}" alt="${hlo.nimi}">
+            <div class="card-content">
+              <h3>${hlo.nimi}</h3>
+              <p>${hlo.kuvaus}</p>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      })
+      .catch(error => {
+        console.error('JSON-tiedoston lataus epäonnistui:', error);
+      });
+  </script>
+
+</body>
+</html>
