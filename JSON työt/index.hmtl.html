@@ -50,14 +50,16 @@
       </div>
     </section>
 
-    <!-- JSON:n tulostus -->
+    <!-- JSON-tulosteet -->
     <section class="json-output">
-      <h2>JSON-tuloste</h2>
-      <pre id="output">JSON-tuloste näkyy täällä</pre>
-    </section>
+      <h2>Kovakoodattu JSON</h2>
+      <p id="nimi"></p>
+      <p id="ikä"></p>
+      <p id="opintopisteet"></p>
+      <pre id="output"></pre>
 
-    <!-- Napit fetchille -->
-    <section class="button-group">
+      <h2>Haettu ulkoinen JSON</h2>
+      <pre id="fetch-output">JSON tulee näkyviin napin painalluksella</pre>
       <button onclick="fetchJSON('data.json')">Hae ulkoinen JSON</button>
     </section>
   </main>
