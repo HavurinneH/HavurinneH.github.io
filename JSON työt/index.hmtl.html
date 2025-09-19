@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hennan JSON-tehtävät</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Hennan JSON-tehtävät</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Etusivu</a></li>
+        <li><a href="tehtavat.html">Tehtävät</a></li>
+        <li><a href="ohjeet.html">Ohjeet</a></li>
+        <li><a href="about.html">Tietoa</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Intro -->
+    <section class="intro">
+      <h2>JSON-datan opiskelua</h2>
+      <p>Tällä sivustolla opiskellaan JSON-muotoista dataa</p>
+    </section>
+
+    <!-- Hero kuva -->
+    <section class="hero">
+      <img src="koodi.webp" alt="tila">
+    </section>
+
+    <!-- Sisältö: Aiheet ja Opintojakso -->
+    <section class="content">
+      <div class="left">
+        <h3>Aiheet</h3>
+        <ul>
+          <li><a href="https://www.weebly.com/">low-code</a></li>
+          <li><a href="https://wordpress.com/">wordpress</a></li>
+          <li><a href="https://getbootstrap.com/">bootstrap</a></li>
+          <li><a href="https://www.json.org/json-en.html">JSON</a></li>
+        </ul>
+      </div>
+      <div class="right">
+        <h3>Opintojakso</h3>
+        <p><strong>Nimi:</strong> Digitekniikat</p>
+        <p><strong>Tunnus:</strong> DIG4TA021</p>
+        <p><strong>Opintopisteet:</strong> 5</p>
+      </div>
+    </section>
+
+    <!-- JSON-editori -->
+    <section id="json-editor">
+      <h2>JSON-editori</h2>
+      <textarea id="json-input" placeholder="Syötä JSON tähän..."></textarea>
+      <div class="button-group">
+        <button onclick="validateJSON()">Validoi</button>
+        <button onclick="saveJSON()">Tallenna</button>
+        <button onclick="loadJSON()">Lataa</button>
+        <button onclick="downloadJSON()">Lataa tiedostona</button>
+      </div>
+
+      <!-- Haku-kenttä ja nappi -->
+      <div class="search-group" style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        <input type="text" id="search-key" placeholder="Kentän nimi" style="flex: 1; padding: 0.5rem; border-radius: 6px; border: 1px solid #444; background: #111; color: #0ff; font-family: monospace;">
+        <button onclick="searchJSONKey()">Hae kenttä</button>
+      </div>
+
+      <pre id="output"></pre>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Sähäkkä JSON-tehtävät</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
