@@ -10,7 +10,7 @@
 
 <header>
   <h1>Hennan JSON-tehtävät</h1>
-  <nav>
+  <nav class="main-nav">
     <ul>
       <li><a href="index.hmtl.html">Tehtävä 1 OSA I</a></li>
       <li><a href="toteutus.html">Tehtävä 1 OSA II</a></li>
@@ -22,21 +22,18 @@
 </header>
 
 <main>
-  <section class="intro">
-    <div id="vastaus"></div>
+  <section class="intro-hero">
+    <div class="intro" id="kurssi">
+      <!-- Kurssin tiedot JS:llä -->
+    </div>
     <div class="hero-image">
       <img src="koodi.webp" alt="Hero-kuva">
     </div>
   </section>
 
-  <section class="topics">
+  <section class="topics" id="aiheet">
     <h3>Aiheet</h3>
-    <ul>
-      <li><b>Aihe:</b> low-code <a href="https://www.weebly.com/" target="_blank">https://www.weebly.com/</a></li>
-      <li><b>Aihe:</b> wordpress <a href="https://wordpress.com/" target="_blank">https://wordpress.com/</a></li>
-      <li><b>Aihe:</b> bootstrap <a href="https://getbootstrap.com/" target="_blank">https://getbootstrap.com/</a></li>
-      <li><b>Aihe:</b> JSON <a href="https://www.json.org/json-en.html" target="_blank">https://www.json.org/json-en.html</a></li>
-    </ul>
+    <!-- Aiheet JS:llä -->
   </section>
 </main>
 
@@ -44,34 +41,6 @@
   <p>&copy; 2025 Hennan JSON-tehtävät</p>
 </footer>
 
-<script>
-fetch('JSON.json')
-  .then(response => response.json())
-  .then(responseJson => kerro(responseJson))
-  .catch(error => {
-    document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
-    console.error(error);
-  });
-
-function kerro(obj) {
-  let tiedot = "<h1>" + obj.otsikko + "</h1>"
-    + "<p>" + obj.kuvaus + "</p><hr>"
-    + "<p><img src='" + obj.kuva + "'></p>"
-    + "<center><h3>Opintojakso</h3>"
-    + "Nimi: " + obj.opintojakso.nimi + "<br>"
-    + "Tunnus: " + obj.opintojakso.tunnus + "<br>"
-    + "Opintopisteet: " + obj.opintojakso.opintopisteet + "<br></center>";
-
-  tiedot += "<p><h3>Aiheet</h3>";
-  for (var i = 0; i < obj.tekniikat.length; i++) {
-    tiedot += "<b>Aihe: " + obj.tekniikat[i].aihe + "</b>";
-    tiedot += " <a href='" + obj.tekniikat[i].linkki + "'>" + obj.tekniikat[i].linkki + "</a><br>";
-  }
-  tiedot += "</p>";
-
-  document.getElementById("vastaus").innerHTML = tiedot;
-}
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
