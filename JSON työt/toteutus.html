@@ -3,91 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <title>Digitekniikat – Osallistujat</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #eef2f3, #8e9eab);
-      margin: 0;
-      padding: 20px;
-    }
-    header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    header h1 {
-      font-size: 2.5em;
-      color: #333;
-    }
-    header p {
-      font-size: 1.2em;
-      color: #555;
-    }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      padding: 0 20px;
-    }
-    .card {
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      overflow: hidden;
-      transition: transform 0.2s ease;
-    }
-    .card:hover {
-      transform: scale(1.03);
-    }
-    .card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-    .card-content {
-      padding: 15px;
-    }
-    .card-content h3 {
-      margin: 0;
-      color: #0077cc;
-    }
-    .card-content p {
-      margin-top: 8px;
-      color: #444;
-      font-size: 0.95em;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header>
-    <h1>Digitekniikat</h1>
-    <p><strong>Toteutusaika:</strong> 13.1.–14.3.2025 &nbsp;|&nbsp; <strong>Kesto:</strong> 8 viikkoa</p>
-  </header>
+<header>
+  <h1>Digitekniikat</h1>
+  <nav>
+    <ul>
+      <li><a href="index.hmtl.html">Tehtävä 1 OSA I</a></li>
+      <li><a href="toteutus.html">Tehtävä 1 OSA II</a></li>
+      <li><a href="tehtava2_osa1.html">Poke haku (Tehtävä 2 OSA I)</a></li>
+      <li><a href="tehtava2_osa2.html">Tehtävä 2 OSA II</a></li>
+      <li><a href="tehtava3.html">Tehtävä 3</a></li>
+    </ul>
+  </nav>
+  <div id="kurssitiedot"></div>
+</header>
 
+<main>
   <div class="cards" id="osallistujat"></div>
+</main>
 
-  <script>
-    fetch('Digitekniikat.json')
-      .then(response => response.json())
-      .then(data => {
-        const container = document.getElementById('osallistujat');
-        data.toteutus.osallistujat.forEach(hlo => {
-          const card = document.createElement('div');
-          card.className = 'card';
-          card.innerHTML = `
-            <img src="${hlo.kuva}" alt="${hlo.nimi}">
-            <div class="card-content">
-              <h3>${hlo.nimi}</h3>
-              <p>${hlo.kuvaus}</p>
-            </div>
-          `;
-          container.appendChild(card);
-        });
-      })
-      .catch(error => {
-        console.error('JSON-tiedoston lataus epäonnistui:', error);
-      });
-  </script>
+<footer>
+  <p>&copy; 2025 Hennan JSON-tehtävät</p>
+</footer>
+
+<script>
+fetch('Digitekniikat.json')
+  .then(response => response.json())
+  .then(data => {
+    const tiedot = data.toteutus;
+
+    const kurssiHTML = `
+      <p><strong>Kurssi:</strong> ${tiedot.nimi}</p>
+      <p><strong>Alkaa:</strong> ${tiedot.alku} &nbsp;|&nbsp; <strong>Loppuu:</strong> ${tiedot.loppu}</p>
+      <p><strong>Kesto:</strong> ${tiedot.kesto_viikkoina} viikkoa</p>
+    `;
+    document.getElementById('kurssitiedot').innerHTML = kurssiHTML;
+
+    const container = document.getElementById('osallistujat');
+    tiedot.osallistujat.forEach(hlo => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <img src="${hlo.kuva}" alt="${hlo.nimi}">
+        <div class="card-content">
+          <h3>${hlo.nimi}</h3>
+          <p>${hlo.kuvaus}</p>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  })
+  .catch(error => {
+    document.getElementById('osallistujat').innerHTML = "<p style='color:red;'>Tietojen lataus epäonnistui.</p>";
+    console.error(error);
+  });
+</script>
 
 </body>
 </html>
