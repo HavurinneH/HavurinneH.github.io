@@ -2,15 +2,28 @@
 <html lang="fi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Digitekniikat – Osallistujat</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; margin:0; background:#0f0f2d; color:#0ff; }
+    header { text-align:center; background:linear-gradient(90deg,#d695ea,#5a0210); padding:1rem; box-shadow:0 0 20px #00f7ff88; }
+    header h1 { margin:0; text-shadow:0 0 10px #00f7ff,0 0 20px #7b2ff7; }
+    nav ul { list-style:none; display:flex; justify-content:center; gap:2rem; padding:0; margin:1rem 0 0 0; }
+    nav a { text-decoration:none; color:#fff; font-weight:bold; transition:0.3s; }
+    nav a:hover { color:#00f7ff; text-shadow:0 0 10px #00f7ff; }
+    #kurssitiedot { text-align:center; margin:1rem auto; padding:1rem; background:rgba(20,20,40,0.8); border-radius:10px; }
+    .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1rem; margin:2rem; }
+    .card { background:rgba(0,0,50,0.7); border-radius:10px; padding:1rem; text-align:center; box-shadow:0 0 10px #00f7ff88; }
+    .card img { width:100%; height:180px; object-fit:cover; border-radius:8px; margin-bottom:0.5rem; }
+    .card-content h3 { margin:0.5rem 0 0.2rem; font-size:1.2rem; }
+    .card-content p { margin:0; font-size:0.95rem; }
+  </style>
 </head>
 <body>
 
 <header>
   <h1>Digitekniikat</h1>
-  <nav class="main-nav">
+  <nav>
     <ul>
       <li><a href="index.html">Tehtävä 1 OSA I</a></li>
       <li><a href="toteutus.html">Tehtävä 1 OSA II</a></li>
@@ -19,10 +32,10 @@
       <li><a href="tehtava3.html">Tehtävä 3</a></li>
     </ul>
   </nav>
+  <div id="kurssitiedot"></div>
 </header>
 
 <main>
-  <div id="kurssitiedot"></div>
   <div class="cards" id="osallistujat"></div>
 </main>
 
@@ -30,6 +43,36 @@
   <p>&copy; 2025 Hennan JSON-tehtävät</p>
 </footer>
 
-<script src="toteutus.js"></script>
+<script>
+  fetch('https://HavurinneH.github.io/JSON työt/Digitekniikat.json') 
+    .then(res => res.json())
+    .then(data => {
+      const kurssi = data.toteutus;
+      document.getElementById('kurssitiedot').innerHTML = `
+        <p><strong>Kurssi:</strong> ${kurssi.nimi}</p>
+        <p><strong>Alkaa:</strong> ${kurssi.alku} &nbsp;|&nbsp; <strong>Loppuu:</strong> ${kurssi.loppu}</p>
+        <p><strong>Kesto:</strong> ${kurssi.kesto_viikkoina} viikkoa</p>
+        <p><strong>Osallistujia:</strong> ${kurssi.osallistujat.length}</p>
+      `;
+      const container = document.getElementById('osallistujat');
+      kurssi.osallistujat.forEach(hlo => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <img src="${hlo.kuva}" alt="${hlo.nimi}">
+          <div class="card-content">
+            <h3>${hlo.nimi}</h3>
+            <p>${hlo.kuvaus}</p>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    })
+    .catch(err => {
+      document.getElementById('osallistujat').innerHTML = '<p style="color:red;">Tietojen lataus epäonnistui.</p>';
+      console.error(err);
+    });
+</script>
+
 </body>
 </html>

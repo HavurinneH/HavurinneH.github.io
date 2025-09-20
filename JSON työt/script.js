@@ -2,7 +2,7 @@
 const kurssiData = {
   otsikko: "JSON-datan käsittelyä",
   kuvaus: "Tällä sivustolla haetaan JSON-muotoista dataa",
-  kuva: "https://jaakkola.github.io/json/digi.JPG",
+  kuva: "code.jpg",
   opintojakso: {
     nimi: "Digitekniikat",
     tunnus: "DIG4TA021",

@@ -5,7 +5,7 @@ const toteutusData = {
     loppu: "2025-03-14",
     kesto_viikkoina: 8,
     osallistujat: [
-      { nimi: "Jaakko", kuvaus: "Erikoistuu verkkosivujen rakenteeseen ja HTML/CSS-tekniikoihin.", kuva: "jaakko.jpg" },
+      { nimi: "Pertti", kuvaus: "Erikoistuu verkkosivujen rakenteeseen ja HTML/CSS-tekniikoihin.", kuva: "pertti.jpg" },
       { nimi: "Seppo", kuvaus: "Keskittyy JavaScriptin logiikkaan ja interaktiivisiin toimintoihin.", kuva: "seppo.jpg" },
       { nimi: "Liisa", kuvaus: "Tutkii tietokantojen suunnittelua ja SQL-kyselyiden optimointia.", kuva: "liisa.jpg" },
       { nimi: "Tiina", kuvaus: "Kehittää käyttöliittymiä ja testaa UX/UI-suunnittelun periaatteita.", kuva: "tiina.jpg" },
