@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Helsingin sää</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Helsingin sää</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Etusivu</a></li>
+        <li><a href="tehtavat.html">Tehtävät</a></li>
+        <li><a href="ohjeet.html">Ohjeet</a></li>
+        <li><a href="about.html">Tietoa</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="weather">
+      <h2>Sää Helsingissä</h2>
+      <p><strong>Lämpötila:</strong> <span id="temp">–</span> °C</p>
+      <p><strong>Tuuli:</strong> <span id="wind">–</span> m/s</p>
+      <p><strong>Sää:</strong> <span id="description">–</span></p>
+      <img id="icon" src="" alt="Sääkuva">
+      <p><strong>Sivun latausaika:</strong> <span id="load-time">–</span></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Hennan JSON-tehtävät</p>
+  </footer>
+
+  <script src="helsinki.js"></script>
+</body>
+</html>
