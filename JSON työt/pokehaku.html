@@ -2,49 +2,49 @@
 <html lang="fi">
 <head>
   <meta charset="UTF-8">
-  <title>Poke haku – Tehtävä 2 OSA I</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokehaku – Tehtävä 2 OSA I</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    body { font-family:'Segoe UI', sans-serif; margin:0; background:#0f0f2d; color:#fff; }
+    body { font-family: 'Segoe UI', sans-serif; margin:0; background:#0f0f2d; color:#e0e0ff; }
     header { background:linear-gradient(90deg,#d695ea,#5a0210); padding:1rem; text-align:center; box-shadow:0 0 20px #00f7ff88; }
-    header h1 { margin:0; text-shadow:0 0 10px #00f7ff,0 0 20px #7b2ff7; }
-    nav ul { list-style:none; display:flex; justify-content:center; gap:2rem; padding:0; margin:1rem 0 0 0; }
+    header h1 { margin:0; font-size:2rem; text-shadow:0 0 10px #00f7ff,0 0 20px #7b2ff7; }
+    nav ul { list-style:none; padding:0; margin:1rem 0 0 0; display:flex; justify-content:center; gap:2rem; }
     nav a { text-decoration:none; color:#fff; font-weight:bold; transition:0.3s; }
     nav a:hover { color:#00f7ff; text-shadow:0 0 10px #00f7ff; }
 
     main { text-align:center; padding:2rem; }
-    #search-container { margin:2rem auto; }
-    input[type="text"] { padding:0.5rem; font-size:1rem; border-radius:8px; border:1px solid #00f7ff; width:200px; text-align:center; }
-    button { padding:0.5rem 1rem; font-size:1rem; margin-left:0.5rem; border-radius:8px; border:none; background:#00f7ff; color:#000; font-weight:bold; cursor:pointer; transition:0.3s; }
-    button:hover { background:#0ff; box-shadow:0 0 10px #00f7ff; }
+    #hakulaatikko { margin-bottom:1rem; }
+    input { padding:0.5rem; border-radius:5px; border:none; }
+    button { padding:0.5rem 1rem; margin:0.5rem; border:none; border-radius:5px; cursor:pointer; background:#5a0210; color:#fff; font-weight:bold; transition:0.3s; }
+    button:hover { background:#7b2ff7; }
 
-    #result { margin-top:2rem; }
-    #result img { width:200px; height:200px; image-rendering:pixelated; }
-    #error { color:red; margin-top:1rem; }
+    #tulos { margin-top:2rem; }
+    #tulos img { width:200px; height:auto; }
+    .ominaisuudet { margin-top:1rem; background:rgba(20,20,40,0.8); padding:1rem; border-radius:8px; box-shadow:0 0 15px #00f7ff55; }
+    .ominaisuudet h3 { margin-top:0; color:#0ff; }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Poke haku</h1>
+  <h1>Pokehaku</h1>
   <nav>
     <ul>
       <li><a href="index.html">Tehtävä 1 OSA I</a></li>
       <li><a href="toteutus.html">Tehtävä 1 OSA II</a></li>
-      <li><a href="pokehaku.html">Poke haku (Tehtävä 2 OSA I)</a></li>
-      <li><a href="tehtava2_osa2.html">Tehtävä 2 OSA II</a></li>
+      <li><a href="pokehaku.html">Poke haku (Tehtävä 2 OSA I ja II)</a></li>
       <li><a href="tehtava3.html">Tehtävä 3</a></li>
     </ul>
   </nav>
 </header>
 
 <main>
-  <div id="search-container">
-    <input type="text" id="pokeInput" placeholder="Kirjoita Pokémonin nimi...">
-    <button onclick="haePoke()">Hae</button>
+  <div id="hakulaatikko">
+    <input type="text" id="pokemonNimi" placeholder="Syötä Pokémonin nimi...">
+    <button onclick="haePokemon()">Hae</button>
   </div>
-  <div id="result"></div>
-  <div id="error"></div>
+  <div id="tulos"></div>
 </main>
 
 <footer>
@@ -52,34 +52,62 @@
 </footer>
 
 <script>
-  function haePoke() {
-    const nimi = document.getElementById('pokeInput').value.toLowerCase().trim();
-    const tulos = document.getElementById('result');
-    const virhe = document.getElementById('error');
-    tulos.innerHTML = '';
-    virhe.innerHTML = '';
+let nykyinenSprite = "front";
+let pokemonData = null;
 
-    if (!nimi) {
-      virhe.textContent = 'Syötä Pokémonin nimi!';
-      return;
-    }
+function haePokemon() {
+  const nimi = document.getElementById("pokemonNimi").value.toLowerCase();
+  if (!nimi) return;
 
-    fetch(`https://pokeapi.co/api/v2/pokemon/${nimi}`)
-      .then(res => {
-        if (!res.ok) throw new Error('Pokémonia ei löytynyt');
-        return res.json();
-      })
-      .then(data => {
-        tulos.innerHTML = `
-          <h2>${data.name.charAt(0).toUpperCase() + data.name.slice(1)}</h2>
-          <img src="${data.sprites.front_default}" alt="${data.name}">
-        `;
-      })
-      .catch(err => {
-        virhe.textContent = 'Pokémonia ei löytynyt. Yritä uudelleen.';
-        console.error(err);
-      });
+  fetch(`https://pokeapi.co/api/v2/pokemon/${nimi}`)
+    .then(res => {
+      if (!res.ok) throw new Error("Pokémonia ei löytynyt");
+      return res.json();
+    })
+    .then(data => {
+      pokemonData = data;
+      const front = data.sprites.front_default;
+      const back = data.sprites.back_default;
+      nykyinenSprite = "front";
+
+      document.getElementById("tulos").innerHTML = `
+        <h2>${data.name}</h2>
+        <img id="pokeKuva" src="${front}" alt="${data.name}">
+        <div>
+          <button onclick="kaanna('${front}','${back}')">Käännä</button>
+        </div>
+        <div id="ominaisuudet"></div>
+      `;
+    })
+    .catch(err => {
+      document.getElementById("tulos").innerHTML = "<p style='color:red;'>Pokémonia ei löytynyt.</p>";
+      console.error(err);
+    });
+}
+
+function kaanna(front, back) {
+  const kuva = document.getElementById("pokeKuva");
+  const ominDiv = document.getElementById("ominaisuudet");
+
+  if (nykyinenSprite === "front") {
+    kuva.src = back;
+    nykyinenSprite = "back";
+
+    // Näytetään ominaisuudet
+    ominDiv.innerHTML = `
+      <div class="ominaisuudet">
+        <h3>Ominaisuudet</h3>
+        <p><b>Pituus:</b> ${pokemonData.height / 10} m</p>
+        <p><b>Paino:</b> ${pokemonData.weight / 10} kg</p>
+        <p><b>Peruskyky:</b> ${pokemonData.abilities[0].ability.name}</p>
+      </div>
+    `;
+  } else {
+    kuva.src = front;
+    nykyinenSprite = "front";
+    ominDiv.innerHTML = ""; // piilotetaan kun palataan etupuolelle
   }
+}
 </script>
 
 </body>
