@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <title>Poke haku – Tehtävä 2 OSA I</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family:'Segoe UI', sans-serif; margin:0; background:#0f0f2d; color:#fff; }
+    header { background:linear-gradient(90deg,#d695ea,#5a0210); padding:1rem; text-align:center; box-shadow:0 0 20px #00f7ff88; }
+    header h1 { margin:0; text-shadow:0 0 10px #00f7ff,0 0 20px #7b2ff7; }
+    nav ul { list-style:none; display:flex; justify-content:center; gap:2rem; padding:0; margin:1rem 0 0 0; }
+    nav a { text-decoration:none; color:#fff; font-weight:bold; transition:0.3s; }
+    nav a:hover { color:#00f7ff; text-shadow:0 0 10px #00f7ff; }
+
+    main { text-align:center; padding:2rem; }
+    #search-container { margin:2rem auto; }
+    input[type="text"] { padding:0.5rem; font-size:1rem; border-radius:8px; border:1px solid #00f7ff; width:200px; text-align:center; }
+    button { padding:0.5rem 1rem; font-size:1rem; margin-left:0.5rem; border-radius:8px; border:none; background:#00f7ff; color:#000; font-weight:bold; cursor:pointer; transition:0.3s; }
+    button:hover { background:#0ff; box-shadow:0 0 10px #00f7ff; }
+
+    #result { margin-top:2rem; }
+    #result img { width:200px; height:200px; image-rendering:pixelated; }
+    #error { color:red; margin-top:1rem; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Poke haku</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Tehtävä 1 OSA I</a></li>
+      <li><a href="toteutus.html">Tehtävä 1 OSA II</a></li>
+      <li><a href="tehtava2_osa1.html">Poke haku (Tehtävä 2 OSA I)</a></li>
+      <li><a href="tehtava2_osa2.html">Tehtävä 2 OSA II</a></li>
+      <li><a href="tehtava3.html">Tehtävä 3</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div id="search-container">
+    <input type="text" id="pokeInput" placeholder="Kirjoita Pokémonin nimi...">
+    <button onclick="haePoke()">Hae</button>
+  </div>
+  <div id="result"></div>
+  <div id="error"></div>
+</main>
+
+<footer>
+  <p>&copy; 2025 Hennan JSON-tehtävät</p>
+</footer>
+
+<script>
+  function haePoke() {
+    const nimi = document.getElementById('pokeInput').value.toLowerCase().trim();
+    const tulos = document.getElementById('result');
+    const virhe = document.getElementById('error');
+    tulos.innerHTML = '';
+    virhe.innerHTML = '';
+
+    if (!nimi) {
+      virhe.textContent = 'Syötä Pokémonin nimi!';
+      return;
+    }
+
+    fetch(`https://pokeapi.co/api/v2/pokemon/${nimi}`)
+      .then(res => {
+        if (!res.ok) throw new Error('Pokémonia ei löytynyt');
+        return res.json();
+      })
+      .then(data => {
+        tulos.innerHTML = `
+          <h2>${data.name.charAt(0).toUpperCase() + data.name.slice(1)}</h2>
+          <img src="${data.sprites.front_default}" alt="${data.name}">
+        `;
+      })
+      .catch(err => {
+        virhe.textContent = 'Pokémonia ei löytynyt. Yritä uudelleen.';
+        console.error(err);
+      });
+  }
+</script>
+
+</body>
+</html>
