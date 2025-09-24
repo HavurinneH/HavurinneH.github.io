@@ -2,16 +2,19 @@
   {
     "title": "Lomakkeiden rakentaminen M365:ssa",
     "description": "Esimerkki potilaspalautteen keruulomakkeesta Microsoft Formsilla.",
-    "category": "ICT"
+    "category": "ICT",
+    "details": "Projektissa luotiin Forms-lomakkeita, jotka automatisoitiin Power Automatella. SharePointiin kerätty data analysoitiin säännöllisesti."
   },
   {
     "title": "Dokumenttiprosessien kehittäminen",
     "description": "Adobe Acrobat Pron avulla luodut lääkehoidon dokumenttipohjat.",
-    "category": "Lääkehoito"
+    "category": "Lääkehoito",
+    "details": "Lääkehoidon lomakkeet muokattiin sähköiseen muotoon ja otettiin käyttöön sairaalaympäristössä. Prosessien selkeyttäminen vähensi virheitä."
   },
   {
     "title": "Palvelumuotoiluprojekti",
     "description": "Käytännön harjoitus, jossa suunniteltiin digitaalisia palveluja hoitoympäristöön.",
-    "category": "Sairaanhoito"
+    "category": "Sairaanhoito",
+    "details": "Projektissa testattiin uusia digitaalisia palvelukonsepteja potilaspalveluiden sujuvoittamiseksi. Asiakaspalautetta kerättiin aktiivisesti."
   }
 ]
