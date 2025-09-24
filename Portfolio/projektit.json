@@ -13,15 +13,5 @@
     "title": "Palvelumuotoiluprojekti",
     "description": "Käytännön harjoitus, jossa suunniteltiin digitaalisia palveluja hoitoympäristöön.",
     "category": "Sairaanhoito"
-  },
-  {
-    "title": "Potilasturvallisuusprojekti",
-    "description": "Käytännön kehityshanke, jossa analysoitiin riskienhallintaa.",
-    "category": "Sairaanhoito"
-  },
-  {
-    "title": "Digitalisaatio hoitotyössä",
-    "description": "Tutkimus digitaalisten palveluiden hyödyntämisestä potilastyössä.",
-    "category": "ICT"
   }
 ]

@@ -75,9 +75,7 @@
   <div class="section-title">
     <h2>Projektit & tutkimukset</h2>
   </div>
-  <div class="row g-3" id="portfolio-cards">
-    <!-- Kortit generoidaan JSONista -->
-  </div>
+  <div class="row g-3" id="portfolio-cards"></div>
 </section>
 
 <section id="contact" class="container py-5">
@@ -92,8 +90,11 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-fetch('https://github.com/HavurinneH/HavurinneH.github.io/blob/main/Portfolio/projektit.json?raw=true')
-  .then(res => res.json())
+fetch('projektit.json')
+  .then(res => {
+    if (!res.ok) throw new Error("JSON ei löytynyt: " + res.status);
+    return res.json();
+  })
   .then(data => {
     const container = document.getElementById('portfolio-cards');
     data.forEach(item => {
