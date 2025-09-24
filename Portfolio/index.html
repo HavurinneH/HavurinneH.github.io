@@ -75,21 +75,10 @@
   </div>
 </section>
 
-<!-- ======= Resume Section ======= -->
-<section id="resume" class="container">
-  <div class="section-title">
-    <h2>Työkokemus & opinnot</h2>
-  </div>
-  <h5>Sairaanhoitaja</h5>
-  <p>Yli 10 vuoden kokemus sosiaali- ja terveysalalta. Vastuualueina mm. lääkehoito ja potilasturvallisuus.</p>
-  <h5>ICT-opinnot</h5>
-  <p>IT-tradenomi (Haaga-Helia) – erikoistuminen digitaalisiin palveluihin, palvelumuotoilu ja teknologia.</p>
-</section>
-
 <!-- ======= Portfolio Section ======= -->
 <section id="portfolio" class="container">
   <div class="section-title">
-    <h2>Projektit</h2>
+    <h2>Hoitotieteelliset tutkimukset</h2>
   </div>
   <div class="row g-3" id="portfolio-cards">
     <!-- Kortit generoidaan JSONista -->
@@ -110,21 +99,25 @@
 
 <!-- ======= JSON-haku & korttien generointi ======= -->
 <script>
-const jsonUrl = 'https://esimerkki.fi/projects.json'; // vaihda oikea URL
+const jsonUrl = 'https://clinicaltrials.gov/api/query/full_studies?expr=nursing&min_rnk=1&max_rnk=5&fmt=json';
 
 fetch(jsonUrl)
   .then(res => res.json())
   .then(data => {
+    const studies = data.FullStudiesResponse.FullStudies;
     const container = document.getElementById('portfolio-cards');
-    data.forEach(item => {
+    studies.forEach(study => {
       const card = document.createElement('div');
       card.className = 'col-lg-4 col-md-6 col-sm-12';
+      const title = study.Study.ProtocolSection.IdentificationModule.BriefTitle;
+      const description = study.Study.ProtocolSection.DescriptionModule.BriefSummary || "Ei kuvausta saatavilla.";
+      const url = study.Study.ProtocolSection.ProtocolSectionHeader.ModuleHeaderURL || "#";
       card.innerHTML = `
         <div class="card h-100 shadow hover-card">
           <div class="card-body">
-            <h5>${item.title}</h5>
-            <p>${item.description}</p>
-            <small>🗂 ${item.category}</small>
+            <h5>${title}</h5>
+            <p>${description}</p>
+            <a href="${url}" target="_blank">Lisätietoja</a>
           </div>
         </div>
       `;
