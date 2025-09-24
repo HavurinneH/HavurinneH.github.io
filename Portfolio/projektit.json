@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Lomakkeiden rakentaminen M365:ssa",
+    "description": "Esimerkki potilaspalautteen keruulomakkeesta Microsoft Formsilla.",
+    "category": "ICT"
+  },
+  {
+    "title": "Dokumenttiprosessien kehittäminen",
+    "description": "Adobe Acrobat Pron avulla luodut lääkehoidon dokumenttipohjat.",
+    "category": "Lääkehoito"
+  },
+  {
+    "title": "Palvelumuotoiluprojekti",
+    "description": "Käytännön harjoitus, jossa suunniteltiin digitaalisia palveluja hoitoympäristöön.",
+    "category": "Sairaanhoito"
+  }
+]

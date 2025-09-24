@@ -1,30 +1,57 @@
 body {
-  font-family: 'Segoe UI', sans-serif;
-  color: #0f0d0d;
+  font-family: 'Poppins', sans-serif;
+  background: url("img/asfalt-dark.png") repeat fixed;
+  color: #fff;
+  margin: 0;
+  padding: 0;
 }
 
-.section-title h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  font-weight: bold;
+h1, h2, h3, h4, h5 {
+  font-family: 'Montserrat', sans-serif;
 }
 
 #hero {
   background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
               url("img/hero-bg.jpg") center/cover no-repeat;
-  height: 60vh; /* voit säätää korkeutta */
+  height: 60vh;
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin-bottom: 5px;
 }
 
-#hero h1 {
-  font-size: 3rem;
-  font-weight: bold;
+#hero h1 { font-size: 3rem; font-weight: 700; }
+#hero p { font-size: 1.5rem; font-weight: 200; }
+
+.section-title h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: 200;
+  color: #fff;
 }
 
-#hero p {
-  font-size: 1.5rem;
+.card {
+  min-height: 300px; /* riittävästi tekstiä varten */
+  border-radius: 12px;
+  background-color: rgba(0,0,0,0.7);
+  color: #fff;
+  border: none;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
+
+.card-body { padding: 1rem; }
+
+.hover-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.row { margin-bottom: 1rem; }
+
+section { padding: 5px 0; }
+
+#skills, #portfolio { padding-top: 5px; padding-bottom: 10px; }
